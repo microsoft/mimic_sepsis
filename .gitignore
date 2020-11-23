@@ -1,0 +1,17 @@
+.idea
+.vscode
+*.pyc
+__pycache__
+*.pkl
+*.h5
+*.json
+*.pdf
+*.csv
+*.tsv
+*.bak
+*.npy
+test*
+data
+err_python*
+out_python*
+*.png
