@@ -18,7 +18,7 @@ In addition to numerous bug fixes in the above code, we added KNN imputation to 
 
 ## Contributing
 
-This code has been developed as part of RL4H initiative at MSR Montreal. Most of the core work has done by
+This code has been developed as part of RL4H initiative at MSR Montreal. Most of the core work has been done by
 
 - Jayakumar Subramanian (jayakumar.subramanian@gmail.com), Research Intern, MSR Montreal
 - Taylor Killian (twkillian@gmail.com), Ph.D. Student, University of Toronto
