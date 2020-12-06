@@ -4,7 +4,14 @@ This repo provides code for generating the sepsis cohort from MIMIC III dataset.
 
 https://github.com/matthieukomorowski/AI_Clinician
 
-In addition to numerous bug fixes in the above code, we added KNN imputation to produce a higher quality data.
+### >> Core updates and modifications to the above repo include:
+
+- Pure python re-implementation;
+- Numerous bug fixes;
+- Add description to the item IDs (essential to clarify what is what);
+- point-by-point check with the original code to assure same data generation before imputation; 
+- Deprecate original imputation parts, which are not reproducible;
+- Add KNN imputation to produce a higher quality data.
 
 ---
 
