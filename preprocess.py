@@ -4,7 +4,7 @@ Licensed under the MIT license.
 
 MIMIC-III Sepsis Cohort Extraction.
 
-This file is partially Sourced from: https://github.com/matthieukomorowski/AI_Clinician
+This file is sourced and modified from: https://github.com/matthieukomorowski/AI_Clinician
 """
 
 import argparse
