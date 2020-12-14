@@ -1,5 +1,10 @@
 """
-MIMIC-III Sepsis Cohort Extraction Sourced from: https://github.com/matthieukomorowski/AI_Clinician
+Copyright (c) Microsoft Corporation.
+Licensed under the MIT license.
+
+MIMIC-III Sepsis Cohort Extraction.
+
+This file is partially Sourced from: https://github.com/matthieukomorowski/AI_Clinician
 """
 
 import argparse
