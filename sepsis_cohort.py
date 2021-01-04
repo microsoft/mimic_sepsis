@@ -1,10 +1,15 @@
 """
-sourced from: https://github.com/matthieukomorowski/AI_Clinician/blob/master/AIClinician_sepsis3_def_160219.m
-IDENTIFIES THE COHORT OF PATIENTS WITH SEPSIS in MIMIC-III as used in the AI Clinician (Komorowski, et al [Nature, 2018])
+Copyright (c) Microsoft Corporation.
+Licensed under the MIT license.
 
+MIMIC-III Sepsis Cohort Extraction.
+
+sourced from: 
+https://github.com/matthieukomorowski/AI_Clinician/blob/master/AIClinician_sepsis3_def_160219.m
+IDENTIFIES THE COHORT OF PATIENTS WITH SEPSIS in MIMIC-III as used in the AI Clinician (Komorowski, et al [Nature, 2018])
 (c) Matthieu Komorowski, Imperial College London 2015-2019
+
 Adapted to Python, and minimally modified, by Jayakumar Subramanian and Taylor Killian
-as seen in publication: https://www.nature.com/articles/s41591-018-0213-5
         
 GENERATES:
     # MIMICraw = MIMIC RAW DATA m*47 array with columns in right order
@@ -31,7 +36,8 @@ note: the process generates the same features as the final MDP dataset, most of 
 External files required: Reflabs, Refvitals, sample_and_hold (all saved in the ReferenceFiles folder)
 
 This code is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE
+without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+See the license for details. 
 
 Note: The size of the cohort will depend on which version of MIMIC-III is used.
 The original cohort from the 2018 Nature Medicine publication was built using MIMIC-III v1.3.
