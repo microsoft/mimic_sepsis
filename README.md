@@ -1,10 +1,16 @@
 # Sepsis Cohort from MIMIC III
 
-This repo provides code for generating the sepsis cohort from MIMIC III dataset. Our main goal is to facilitate reproducibility of results in the literature. This is a purely python repo based on (a corrected version by the first contributor below) the original Matlab repo accompanying "The Artificial Intelligence Clinician..." ([Komorowski, et al](https://www.nature.com/articles/s41591-018-0213-5?sf200531662=1)) [Nature Medicine, 2018]:
+This repo provides code for generating the sepsis cohort from MIMIC III dataset. Our main goal is to facilitate reproducibility of results in the literature. 
+
+This is a pure-python implementation based on a corrected version (by the first contributor below) of an original Matlab repo accompanying "The AI Clinician" paper.
+
+Original code and paper:
 
 https://github.com/matthieukomorowski/AI_Clinician
 
-### >> Core updates and modifications to the above repo include:
+[Komorowski, et al](https://www.nature.com/articles/s41591-018-0213-5?sf200531662=1)
+
+### Core updates and modifications to the above repo include:
 
 - Pure python re-implementation;
 - Numerous bug fixes;
