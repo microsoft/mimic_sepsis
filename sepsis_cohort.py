@@ -1679,7 +1679,7 @@ for i in trajectories:
     data['traj'][i] = {}
     data['traj'][i]['meta'] = meta_df[meta_df['traj']==i][meta_cols].values.T
     data['traj'][i]['obs'] = ob_df[ob_df['traj'] == i][ob_cols].values.T
-    data['traj'][i]['actions'] = ac_df[ac_df['traj'] == i]['action'].values.astype(np.int32) - 1 # -1 since the CSV files from MATLAB are 1-indexed and python is 0-indexed
+    data['traj'][i]['actions'] = ac_df[ac_df['traj'] == i]['action'].values.astype(np.int32)
     data['traj'][i]['outcome'] = raw_data_df[raw_data_df['traj'] == i][outcome_key].values[0] 
     data['traj'][i]['rewards'] = np.zeros(len(data['traj'][i]['actions']))
     data['traj'][i]['rewards'][-1] = (1-2*data['traj'][i]['outcome'])
@@ -1735,7 +1735,7 @@ if pargs.process_raw: # If we want to convert the MIMICraw data into trajectorie
         data['traj'][i] = {}
         data['traj'][i]['meta'] = meta_df[meta_df['traj']==i][meta_cols].values.T
         data['traj'][i]['obs'] = ob_df[ob_df['traj'] == i][ob_cols].values.T
-        data['traj'][i]['actions'] = ac_df[ac_df['traj'] == i]['action'].values.astype(np.int32) - 1 # -1 since the CSV files from MATLAB are 1-indexed and python is 0-indexed
+        data['traj'][i]['actions'] = ac_df[ac_df['traj'] == i]['action'].values.astype(np.int32)
         data['traj'][i]['outcome'] = raw_data_df[raw_data_df['traj'] == i][outcome_key].values[0] 
         data['traj'][i]['rewards'] = np.zeros(len(data['traj'][i]['actions']))
         data['traj'][i]['rewards'][-1] = (1-2*data['traj'][i]['outcome'])
