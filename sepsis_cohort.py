@@ -818,7 +818,7 @@ reformat3t = pd.DataFrame(reformat3, columns= reformat2t.columns[[True]*11 + (mi
 print('Full ICU -- Doing linear interpolation where missingness is low (kNN imputation doesnt work if all rows have missing values)')
 miss = np.sum(np.isnan(reformat3), axis=0)/reformat3.shape[0]
 ii = (miss>0) & (miss<0.05)  #less than 5% missingness
-mechventcol = reformat3t.columns.tolist().index('mechvent')
+mechventcol = reformat3t.columns.tolist().index('MechVent')
 
 for i in range(10,mechventcol): # Correct column by column
     if ii[i]==1:
@@ -830,7 +830,7 @@ reformat3t[reformat3t.columns[10:mechventcol]] = reformat3[:,10:mechventcol]
 print('Full ICU -- KNN imputation')
 
 reformat3t_cols = reformat3t.columns.tolist()
-mechventcol = reformat3t_cols.index('mechvent')
+mechventcol = reformat3t_cols.index('MechVent')
 ref = np.copy(reformat3[:,11:mechventcol])  #columns of interest
 
 bar_knn = pyprind.ProgBar(len(range(0,reformat3.shape[0],9999)))
@@ -855,8 +855,8 @@ ii = reformat4t['age'] > 150*365.25
 reformat4t.loc[ii,'age'] = 91.4*365.25
 
 # FIX MECHVENT
-reformat4t['mechvent'].fillna(0, inplace=True)
-reformat4t.loc[reformat4t['mechvent'] > 0, 'mechvent'] = 1
+reformat4t['MechVent'].fillna(0, inplace=True)
+reformat4t.loc[reformat4t['MechVent'] > 0, 'MechVent'] = 1
 
 # FIX Elixhauser missing values
 reformat4t['elixhauser'].loc[np.isnan(reformat4t['elixhauser'])] = np.nanmedian(reformat4t['elixhauser'])   #use the median value / only a few missing data points 
@@ -1076,8 +1076,8 @@ for icustayidrow in range(1, sepsis.shape[0]+1):
             #MV  
             ii = temp3['charttime'] == t[i]
             if np.nansum(ii) > 0:
-                col = temp3.loc[ii, 'mechvent']
-                value = temp3.loc[ii, 'extubated']
+                col = temp3.loc[ii, 'MechVent']
+                value = temp3.loc[ii, 'Extubated']
                 reformat[irow, 67] = col.values[0] # Store available values
                 reformat[irow, 68] = value.values[0] # Store available values
             else:
@@ -1486,7 +1486,7 @@ reformat2t = pd.DataFrame(reformat2, columns=dataheaders)
 dataheaders5 = ['bloc', 'icustayid', 'charttime', 'gender', 'age', 'elixhauser', 're_admission', 'presumed_onset', 'died_in_hosp', 'died_within_48h_of_out_time', \
     'mortality_90d', 'delay_end_of_record_and_discharge_or_death', 'Weight_kg', 'GCS', 'HR', 'SysBP', 'MeanBP', 'DiaBP', 'RR', 'SpO2', 'Temp_C', 'FiO2_1', \
     'Potassium', 'Sodium', 'Chloride', 'Glucose', 'BUN', 'Creatinine', 'Magnesium', 'Calcium', 'Ionised_Ca', 'CO2_mEqL', 'SGOT', 'SGPT', 'Total_bili', 'Albumin', \
-    'Hb', 'WBC_count', 'Platelets_count', 'PTT', 'PT', 'INR', 'Arterial_pH', 'paO2', 'paCO2', 'Arterial_BE', 'HCO3', 'Arterial_lactate', 'mechvent', 'Shock_Index', \
+    'Hb', 'WBC_count', 'Platelets_count', 'PTT', 'PT', 'INR', 'Arterial_pH', 'paO2', 'paCO2', 'Arterial_BE', 'HCO3', 'Arterial_lactate', 'MechVent', 'Shock_Index', \
     'PaO2_FiO2', 'median_dose_vaso', 'max_dose_vaso', 'input_total', 'input_4hourly', 'output_total', 'output_4hourly', 'cumulated_balance']
 
 reformat3t = reformat2t[dataheaders5].copy() 
@@ -1500,8 +1500,8 @@ ii = reformat3t['age'] > 150*365.25
 reformat3t.loc[ii,'age'] = 91.4*365.25
 
 # FIX MECHVENT
-reformat3t['mechvent'].fillna(0, inplace=True)
-reformat3t.loc[reformat3t['mechvent'] > 0, 'mechvent'] = 1
+reformat3t['MechVent'].fillna(0, inplace=True)
+reformat3t.loc[reformat3t['MechVent'] > 0, 'MechVent'] = 1
 
 # FIX Elixhauser missing values
 reformat3t['elixhauser'].loc[np.isnan(reformat3t['elixhauser'])] = np.nanmedian(reformat3t['elixhauser'])   #use the median value / only a few missing data points 
@@ -1524,7 +1524,7 @@ reformat3t['PaO2_FiO2'] = np.zeros(reformat3t.shape[0])
 reformat3 = reformat3t.values
 miss = np.sum(np.isnan(reformat3), axis=0)/reformat3.shape[0]
 ii = (miss>0) & (miss<0.05)  #less than 5% missingness
-mechventcol = reformat3t.columns.tolist().index('mechvent')
+mechventcol = reformat3t.columns.tolist().index('MechVent')
 
 for i in range(12, mechventcol): # correct col by col, otherwise it does it wrongly
     if ii[i]==1:
@@ -1536,7 +1536,7 @@ reformat3t[reformat3t.columns[12:mechventcol]] = reformat3[:, 12:mechventcol]
 print('Sepsis Cohort -- KNN imputation with K = 1')
 
 reformat3t_cols = reformat3t.columns.tolist()
-mechventcol = reformat3t_cols.index('mechvent')
+mechventcol = reformat3t_cols.index('MechVent')
 ref = np.copy(reformat3[:,12:mechventcol])  #columns of interest
 
 bar_knn = pyprind.ProgBar(len(range(0,reformat3.shape[0],9999)))
@@ -1613,7 +1613,7 @@ if pargs.save_intermediate:
 
 # all 47 columns of interest + additional meta columns to easier associate trajectories with other patient auxiliary info (eg. notes)
 colmeta = ['presumed_onset', 'charttime', 'icustayid']  # Meta-data around patient stay
-colbin = ['gender', 'mechvent', 'max_dose_vaso', 're_admission']  # Binary features
+colbin = ['gender', 'MechVent', 'max_dose_vaso', 're_admission']  # Binary features
 # Patient features that will be z-normalize
 colnorm = ['age', 'Weight_kg', 'GCS', 'HR', 'SysBP', 'MeanBP', 'DiaBP', 'RR', 'Temp_C', 'FiO2_1',\ 
         'Potassium', 'Sodium', 'Chloride', 'Glucose', 'Magnesium', 'Calcium', 'Hb', \
