@@ -397,8 +397,8 @@ for icustayid in icustayidlist:
                     # Mechanical Ventilation  
                     ii = temp3['charttime'] == t[i]
                     if np.nansum(ii) > 0:
-                        col = temp3.loc[ii, 'mechvent']
-                        value = temp3.loc[ii, 'extubated']
+                        col = temp3.loc[ii, 'MechVent']
+                        value = temp3.loc[ii, 'Extubated']
                         reformat[irow, 66] = col.values[0] # Store available values
                         reformat[irow, 67] = value.values[0] # Store available values
                     else:
@@ -799,7 +799,7 @@ dataheaders = ['Height_cm', 'Weight_kg', 'GCS','RASS','HR', 'SysBP', 'MeanBP', '
 'SVR', 'Interface', 'FiO2_100', 'FiO2_1', 'O2flow', 'PEEP', 'TidalVolume', 'MinuteVentil', 'PAWmean', 'PAWpeak', 'PAWplateau', 'Potassium', 'Sodium',
 'Chloride', 'Glucose', 'BUN', 'Creatinine', 'Magnesium', 'Calcium', 'Ionised_Ca', 'CO2_mEqL', 'SGOT', 'SGPT', 'Total_bili', 'Direct_bili', 'Total_protein',
 'Albumin', 'Troponin', 'CRP', 'Hb', 'Ht', 'RBC_count', 'WBC_count', 'Platelets_count', 'PTT', 'PT', 'ACT', 'INR', 'Arterial_pH', 'paO2', 'paCO2',
-'Arterial_BE', 'Arterial_lactate', 'HCO3', 'ETCO2', 'SvO2', 'mechvent', 'extubated', 'Shock_Index', 'PaO2_FiO2']
+'Arterial_BE', 'Arterial_lactate', 'HCO3', 'ETCO2', 'SvO2', 'MechVent', 'Extubated', 'Shock_Index', 'PaO2_FiO2']
 dataheaders = ['bloc','icustayid','charttime','gender','age','elixhauser','re_admission', 'died_in_hosp', 'died_within_48h_of_out_time','mortality_90d','delay_end_of_record_and_discharge_or_death'] + \
     dataheaders + ['median_dose_vaso','max_dose_vaso','input_total','input_4hourly','output_total','output_4hourly','cumulated_balance']
 
@@ -1272,8 +1272,8 @@ reformat[ii, 23] = np.nan
 
 # Update Fi02 columns again
 ii = (~np.isnan(reformat[:, 23])) & (np.isnan(reformat[:, 24]))
-reformat[ii 24] = reformat[ii, 23]/100
-ii = (~np.isnan(reformat[:, 24])) & (np.isnan(reformat[:,24]))
+reformat[ii, 24] = reformat[ii, 23]/100
+ii = (~np.isnan(reformat[:, 24])) & (np.isnan(reformat[:, 24]))
 reformat[ii, 23] = reformat[ii, 24]*100
 
 # BLOOD PRESSURE
@@ -1484,7 +1484,7 @@ reformat2t = pd.DataFrame(reformat2, columns=dataheaders)
 
 # headers I want to keep
 dataheaders5 = ['bloc', 'icustayid', 'charttime', 'gender', 'age', 'elixhauser', 're_admission', 'presumed_onset', 'died_in_hosp', 'died_within_48h_of_out_time', \
-    'mortality_90d', 'delay_end_of_record_and_discharge_or_death', 'Weight_kg', 'GCS',' HR', 'SysBP', 'MeanBP', 'DiaBP', 'RR', 'SpO2', 'Temp_C', 'FiO2_1', \
+    'mortality_90d', 'delay_end_of_record_and_discharge_or_death', 'Weight_kg', 'GCS', 'HR', 'SysBP', 'MeanBP', 'DiaBP', 'RR', 'SpO2', 'Temp_C', 'FiO2_1', \
     'Potassium', 'Sodium', 'Chloride', 'Glucose', 'BUN', 'Creatinine', 'Magnesium', 'Calcium', 'Ionised_Ca', 'CO2_mEqL', 'SGOT', 'SGPT', 'Total_bili', 'Albumin', \
     'Hb', 'WBC_count', 'Platelets_count', 'PTT', 'PT', 'INR', 'Arterial_pH', 'paO2', 'paCO2', 'Arterial_BE', 'HCO3', 'Arterial_lactate', 'mechvent', 'Shock_Index', \
     'PaO2_FiO2', 'median_dose_vaso', 'max_dose_vaso', 'input_total', 'input_4hourly', 'output_total', 'output_4hourly', 'cumulated_balance']
