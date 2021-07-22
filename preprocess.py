@@ -711,7 +711,7 @@ select
           THEN 1
         else 0
       end
-      ) as MechVent
+      ) as mechvent
       , max(
         case when itemid is null or value is null then 0
           when itemid = 640 and value = 'Extubated' then 1
@@ -719,14 +719,14 @@ select
         else 0
         end
         )
-        as Extubated
+        as extubated
       , max(
         case when itemid is null or value is null then 0
           when itemid = 640 and value = 'Self Extubation' then 1
         else 0
         end
         )
-        as SelfExtubated
+        as selfextubated
 
   from mimiciii.chartevents ce
   where value is not null
