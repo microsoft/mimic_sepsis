@@ -956,7 +956,7 @@ reformat4t = reformat4t.loc[~ii]
 # Exclude patients who died in ICU during data collection period
 print('Full ICU -- excluding patients who died in ICU during data collection period')
 ii = (reformat4t['bloc'] == 1) & (reformat4t['died_within_48h_of_out_time'] == 1) & (reformat4t['delay_end_of_record_and_discharge_or_death'] < 24)
-ii = reformat4t['icustayid'][ii].isin(icustayidlist).index 
+ii = reformat4t['icustayid'][ii][reformat4t['icustayid'][ii].isin(icustayidlist)]
 ii = reformat4t['icustayid'].isin(ii)
 reformat4t = reformat4t.loc[~ii] 
 
