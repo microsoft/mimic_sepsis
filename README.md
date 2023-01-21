@@ -60,7 +60,7 @@ https://mimic.physionet.org/
 
 The MIMIC database is publicly available; however, accessing MIMIC requires additional steps which are explained at the hosting webpage.
 
-We chose to use a PostgresSQL server to manage the database (hence our use of the `psycopg2` library requirement--see `requirements.txt`). Other options and formats are available, see the [MIMIC repository](https://github.com/MIT-LCP/mimic-code/tree/master/buildmimic) for examples and alternatives.
+We chose to use a PostgreSQL server to manage the database (hence our use of the `psycopg2` library requirement--see `requirements.txt`). Other options and formats are available, see the [MIMIC repository](https://github.com/MIT-LCP/mimic-code/tree/master/buildmimic) for examples and alternatives.
 
 After downloading and setting up the SQL files and performing all the steps from the physionet link above, you should be able to use this codebase without too much additional set-up. 
 
